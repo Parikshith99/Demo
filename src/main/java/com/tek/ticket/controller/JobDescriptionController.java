@@ -53,6 +53,7 @@ public class JobDescriptionController {
 	 @GetMapping("/gitinfo")
 	    public ResponseEntity<Map<String, Object>> getGitInfo() throws IOException {
 	ClassPathResource classPathResource = new ClassPathResource("git.properties");
+	System.out.println("Hello");
 	        Properties properties = new Properties();
 	        properties.load(classPathResource.getInputStream());
 	        Map<String, Object> gitInfo = new HashMap<>();
