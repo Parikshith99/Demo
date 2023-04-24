@@ -10,3 +10,4 @@ public interface JobDescriptionRepository extends JpaRepository<JobDescription, 
 	
 
 }
+
