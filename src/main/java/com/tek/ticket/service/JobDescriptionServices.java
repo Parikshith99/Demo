@@ -18,6 +18,7 @@ public class JobDescriptionServices {
 	
 	@Autowired
 	private JobDescriptionRepository jobDescriptionRepository;
+
 	
 	@Autowired
 	private ModelMapper modelMapper;
@@ -55,4 +56,6 @@ public class JobDescriptionServices {
 		JobDescriptionDto jobDescriptionDto = this.modelMapper.map(jobDescription, JobDescriptionDto.class);
 		return jobDescriptionDto;
 	}
+	
+	
 }

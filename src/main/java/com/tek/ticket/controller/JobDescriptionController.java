@@ -1,18 +1,11 @@
 package com.tek.ticket.controller;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.util.HashMap;
+
 import java.util.List;
-import java.util.Map;
-import java.util.Properties;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.ResourceLoader;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -29,10 +22,7 @@ import com.tek.ticket.service.JobDescriptionServices;
 @RequestMapping("/api/jobs")
 @CrossOrigin
 public class JobDescriptionController {
-	
-	@Autowired
-	private ResourceLoader resourceLoader;
-	
+
 	@Autowired
 	private JobDescriptionServices jobDescriptionService;
 
@@ -49,16 +39,6 @@ public class JobDescriptionController {
 
 		return new ResponseEntity<List<JobDescriptionDto>>(allJobDescription, HttpStatus.OK);
 	}
-	
-	 @GetMapping("/gitinfo")
-	    public ResponseEntity<Map<String, Object>> getGitInfo() throws IOException {
-	ClassPathResource classPathResource = new ClassPathResource("git.properties");
-	        Properties properties = new Properties();
-	        properties.load(classPathResource.getInputStream());
-	        Map<String, Object> gitInfo = new HashMap<>();
-	        gitInfo.put("branch", properties.getProperty("git.branch"));
-	        gitInfo.put("commitId", properties.getProperty("git.commit.id"));
-	        gitInfo.put("commitTime", properties.getProperty("git.commit.time"));
-	        return ResponseEntity.ok(gitInfo);
-	    }
+
+
 }
